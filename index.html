@@ -1,0 +1,55 @@
+﻿<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f3f7fc">
+  <title>ثبت محصول | تمرین API</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="page-shell">
+    <div class="content-grid">
+      <section class="card form-card">
+        <div class="card-heading"><div><span class="section-kicker">محصول جدید</span><h1>مشخصات محصول</h1></div><span class="form-logo" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m4 7 8-3.5L20 7v10l-8 3.5L4 17V7Z"/><path d="m4.5 7.2 7.5 3.4 7.5-3.4M12 10.6v9.5M8 5.3l8 3.5"/></svg></span></div>
+        <form id="product-form">
+          <label for="title">نام محصول <span class="required">*</span></label>
+          <input id="title" name="title" type="text" placeholder="مثلاً هدفون بی‌سیم" minlength="3" required autocomplete="off">
+          <div class="field-row">
+            <div><label for="price">قیمت <span class="required">*</span></label><div class="price-input"><input id="price" name="price" type="number" min="1000" step="1000" placeholder="1000" required><span>تومان</span></div></div>
+            <div><label for="category">دسته‌بندی</label><select id="category" name="category"><option value="electronics">الکترونیک</option><option value="jewelery">زیورآلات</option><option value="men's clothing">پوشاک مردانه</option><option value="women's clothing">پوشاک زنانه</option></select></div>
+          </div>
+          <label for="description">توضیحات <span class="required">*</span></label>
+          <textarea id="description" name="description" rows="4" minlength="10" placeholder="ویژگی‌های محصول را بنویس..." required></textarea>
+          <p class="field-hint">حداقل 10 کاراکتر نیاز است</p>
+          <div class="simulate-row"><input id="simulate-failure" type="checkbox"><label for="simulate-failure">شبیه‌سازی حالت ناموفق</label></div>
+          <div id="error-message" class="error-message" role="alert" hidden></div>
+          <button id="submit-button" type="submit"><span>ارسال محصول</span><span aria-hidden="true">←</span></button>
+        </form>
+      </section>
+      <aside class="side-column">
+        <section class="card endpoint-card">
+          <div class="card-heading compact"><div><span class="section-kicker">API endpoint</span><h2>درخواست محصول</h2></div><span class="method-badge">POST</span></div>
+          <div class="url-box"><span class="url-dot"></span><code>https://fakestoreapi.com/products</code></div>
+        </section>
+        <section id="result-card" class="card result-card" aria-live="polite">
+          <div class="card-heading compact"><div><span class="section-kicker">پاسخ سرور</span><h2 id="result-title">آماده‌ی ارسال</h2></div><span id="result-icon" class="result-icon" aria-hidden="true">↗</span></div>
+          <p id="result-summary" class="result-summary"></p>
+          <div id="result-details" class="result-details" hidden>
+            <div class="status-line"><span>وضعیت HTTP</span><strong id="http-status"></strong></div>
+            <div class="json-block"><div class="json-label"><span>Request payload</span><span class="json-format">JSON</span></div><pre id="request-json"></pre></div>
+            <div class="json-block"><div class="json-label"><span>Response body</span><span class="json-format">JSON</span></div><pre id="response-json"></pre></div>
+          </div>
+          <div id="result-placeholder" class="result-placeholder"><span>↳</span><span>هنوز پاسخی دریافت نشده</span></div>
+        </section>
+      </aside>
+    </div>
+  </main>
+</body>
+</html>
+
+
+
+
+
